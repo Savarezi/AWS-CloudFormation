@@ -1,0 +1,36 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Stack principal do desafio CloudFormation - cria EC2 + S3
+
+Parameters:
+  InstanceType:
+    Description: Tipo de instância EC2
+    Type: String
+    Default: t2.micro
+    AllowedValues:
+      - t2.micro
+      - t2.small
+      - t2.medium
+
+Resources:
+  MeuBucketS3:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: meu-bucket-dio-exemplo
+
+  MinhaInstanciaEC2:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: !Ref InstanceType
+      ImageId: ami-0c02fb55956c7d316  # Amazon Linux 2 (região us-east-1)
+      Tags:
+        - Key: Name
+          Value: MinhaInstanciaDIO
+
+Outputs:
+  BucketName:
+    Description: Nome do bucket S3 criado
+    Value: !Ref MeuBucketS3
+
+  EC2InstanceId:
+    Description: ID da instância EC2 criada
+    Value: !Ref MinhaInstanciaEC2
