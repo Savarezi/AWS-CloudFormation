@@ -1,4 +1,4 @@
-# Desafio AWS CloudFormation - DIO
+# Desafio AWS CloudFormation - Santander Code Girls
 
 ## Descrição
 Este repositório contém minha prática do laboratório "Entendendo Desafio", onde implementei minha primeira Stack utilizando AWS CloudFormation. Aqui estão documentados meus insights, aprendizados e processos técnicos.
